@@ -3,6 +3,11 @@ revision = 3
 requires-python = ">=3.14, <4.0"
 
 [[package]]
+name = "agentic-tools"
+version = "0.1.0"
+source = { git = "https://github.com/swiftpostlab/agentic-tools.git#47699b2772cc8509c83dfaa69d115334822af058" }
+
+[[package]]
 name = "black"
 version = "26.1.0"
 source = { registry = "https://pypi.org/simple" }
@@ -70,6 +75,7 @@ source = { editable = "." }
 
 [package.dev-dependencies]
 dev = [
+    { name = "agentic-tools" },
     { name = "black" },
     { name = "json5" },
     { name = "poethepoet" },
@@ -81,6 +87,7 @@ dev = [
 
 [package.metadata.requires-dev]
 dev = [
+    { name = "agentic-tools", git = "https://github.com/swiftpostlab/agentic-tools.git" },
     { name = "black", specifier = ">=25.1.0" },
     { name = "json5", specifier = ">=0.9" },
     { name = "poethepoet", specifier = ">=0.34.0" },

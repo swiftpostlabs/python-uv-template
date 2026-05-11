@@ -1,0 +1,17 @@
+{
+  "sources": [
+    {
+      "from": "package:agentic-tools",
+      "skills": [
+        "ref-agents-persona",
+        "ref-agents-security",
+        "ref-coding-patterns",
+        "ref-local-feature-tracking",
+        "ref-projects-architecture",
+        "ref-python",
+        "ref-skills-authoring",
+        "tool-maintain-skills"
+      ]
+    }
+  ]
+}

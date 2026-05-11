@@ -1,4 +1,5 @@
 # Agent only dirs
+.agents/skills/
 .agents/tasks
 
 

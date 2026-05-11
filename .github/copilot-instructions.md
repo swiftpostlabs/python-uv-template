@@ -40,33 +40,33 @@ I am an adult and can bear being told I am wrong. If something in my line of tho
 
 ## Project Skills
 
-All project skills are located in `.agents/skills/` and automatically load in Copilot based on context and trigger phrases.
+Project skills are synced into `.agents/skills/` from `.agents/skills.json` and automatically load in Copilot based on context and trigger phrases. Do not hand-edit linked skill folders in this repo; update the upstream skill source instead.
 
 ### Available Skills
 
-**`agent-behavior`** — Project persona and workflow expectations
+**`ref-agents-persona`** — Project persona and workflow expectations
 - Use when: starting tasks, planning commits, preserving structure, or understanding communication expectations
 
-**`code-conventions`** — Python code structure and quality standards
-- Use when: creating features, writing tests, adjusting project config, or working with source code
-
-**`project-structure-setup`** — Project layout, `pyproject.toml`, and tool wiring
-- Use when: locating code, understanding folder layout, or updating project/tool configuration
-
-**`ai-safety`** — AI policy, protected files, and sync workflow
+**`ref-agents-security`** — AI policy, protected files, and exclusion sync
 - Use when: changing `.ai-policy.json`, sync behavior, or generated safety files
 
-**`skills-authoring`** — Guidelines for creating and maintaining project skills
+**`ref-coding-patterns`** — Portable coding defaults across languages and CLIs
+- Use when: choosing naming, typing, comments, branching structure, CLI ergonomics, or testing defaults
+
+**`ref-python`** — Portable Python guidance for typed code, scripts, and tests
+- Use when: writing or refactoring Python modules, designing Python CLIs, or deciding typing and testing patterns
+
+**`ref-projects-architecture`** — Portable architecture guidance for feature folders and code boundaries
+- Use when: deciding where code should live, splitting features, or separating product code from maintenance scripts
+
+**`ref-skills-authoring`** — Guidelines for creating and maintaining project skills
 - Use when: designing skills, updating copied skills, or evaluating skill quality
 
-**`tool-consolidate-skills`** — Consolidate overlapping skill and top-level guidance
-- Use when: trimming duplication, moving rules to the right owner, or simplifying `copilot-instructions.md`
-
-**`tool-adopt-these-skills`** — Adopt this repo's core skills and AI safety tooling in another repository
-- Use when: bootstrapping another repo with this repo's agent setup or porting the AI safety workflow elsewhere
-
-**`tasks-management`** — Maintain feature task tracking under `.agents/tasks/`
+**`ref-local-feature-tracking`** — Maintain feature task tracking under `.agents/tasks/`
 - Use when: a task should be tracked as a structured multi-step feature
+
+**`tool-maintain-skills`** — Review and refresh the synced skill set after repo or workflow changes
+- Use when: skills may be outdated after code or tooling changes or guidance is duplicated
 
 ## Workflow
 
@@ -77,7 +77,7 @@ When working on this project:
 3. **Implement**: Follow the owning skill for the area you are touching.
 4. **Validate**: Run lint, type-checking, and tests before committing.
 5. **Commit**: Keep commits small and focused.
-6. **Reflect**: Review what happened in the session, identify both corrections and durable lessons, and decide whether any skill or instruction should be updated. Summarize the result to the user and ask if they want the guidance updated. If yes, update the relevant skill using `skills-authoring`, and after editing suggest a follow-up consolidation pass with `tool-consolidate-skills`.
+6. **Reflect**: Review what happened in the session, identify both corrections and durable lessons, and decide whether any skill or instruction should be updated. Summarize the result to the user and ask if they want the guidance updated. If yes, update the relevant skill using `ref-skills-authoring`, and after editing suggest a follow-up maintenance pass with `tool-maintain-skills`.
 
 ## Quick Commands
 
@@ -88,6 +88,7 @@ When working on this project:
 - `uv run poe typecheck` — Run Pyright strict mode.
 - `uv run poe lint-filter` — Run lint and filter output.
 - `uv run poe typecheck-filter` — Run type-checking and filter output.
+- `uv run skills-management sync` — Sync configured shared skills into `.agents/skills/`.
 - `uv run sync-ai-policy` — Regenerate agent config from `.ai-policy.json`.
 - `uv run sync-ai-policy-import-vscode` — Import VS Code approvals into policy, then sync.
 
@@ -95,8 +96,9 @@ Use the Poe validation tasks above as the default way to run tests, lint, and ty
 
 ## Asking for Help
 
-- For code structure, typing, tests, or CLI/task choices: use `code-conventions`.
-- For repo layout, tool wiring, or `pyproject.toml`: use `project-structure-setup`.
-- For workflow and structural caution: use `agent-behavior`.
-- For safety config and generated policy files: use `ai-safety`.
-- For skills themselves: use `skills-authoring` and `tool-consolidate-skills`.
+- For workflow and structural caution: use `ref-agents-persona`.
+- For safety config and generated policy files: use `ref-agents-security`.
+- For Python structure, typing, tests, or CLI choices: use `ref-python` and `ref-coding-patterns`.
+- For feature boundaries or folder decisions: use `ref-projects-architecture`.
+- For task tracking under `.agents/tasks/`: use `ref-local-feature-tracking`.
+- For skills themselves: use `ref-skills-authoring` and `tool-maintain-skills`.

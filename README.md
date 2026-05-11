@@ -24,6 +24,18 @@ uv sync
 
 After this step you may want to close and reopen your terminal or IDE to ensure that the uv-managed virtual environment is activated correctly.
 
+## Shared agent skills
+
+This template consumes shared Copilot skills from the `agentic-tools` package declared in the development dependencies.
+
+After `uv sync`, populate `.agents/skills/` from `.agents/skills.json` with:
+
+```sh
+uv run skills-management sync
+```
+
+The synced skill links point into the repo's local `.venv`, so `.agents/skills/` is generated locally rather than tracked in git.
+
 ## Initialize a project
 
 Run the initializer through uv so it uses the managed environment and the registered entrypoint:
