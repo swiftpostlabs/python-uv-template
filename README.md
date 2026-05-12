@@ -31,10 +31,26 @@ This template consumes shared Copilot skills from the `agentic-tools` package de
 After `uv sync`, populate `.agents/skills/` from `.agents/skills.json` with:
 
 ```sh
-uv run skills-management sync
+uv run poe sync-skills
 ```
 
 The synced skill links point into the repo's local `.venv`, so `.agents/skills/` is generated locally rather than tracked in git.
+
+## Agent policy
+
+This template also uses the installed `agentic-tools` package for policy sync instead of shipping a repo-local wrapper script.
+
+Sync the generated agent policy files with:
+
+```sh
+uv run poe sync-ai-policy
+```
+
+Check policy drift without rewriting generated files with:
+
+```sh
+uv run poe policy-check
+```
 
 ## Initialize a project
 

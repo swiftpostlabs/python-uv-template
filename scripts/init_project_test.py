@@ -174,9 +174,7 @@ def test_update_pyproject_content_updates_name_sources_and_entrypoints() -> None
     ]
     assert parsed["project"]["scripts"]["init-project"] == "scripts.init_project:main"
     assert parsed["project"]["scripts"]["main"] == "cool_app.main:main"
-    assert (
-        parsed["project"]["scripts"]["sync-ai-policy"] == "scripts.sync_ai_policy:main"
-    )
+    assert "sync-ai-policy" not in parsed["project"]["scripts"]
 
 
 def test_initialize_project_renames_package_and_updates_imports(
@@ -195,7 +193,6 @@ packages = ["src/my_project", "scripts"]
 [project.scripts]
 init-project = "scripts.init_project:main"
 main = "my_project.main:main"
-sync-ai-policy = "scripts.sync_ai_policy:main"
 """.strip() + "\n",
         encoding="utf-8",
     )

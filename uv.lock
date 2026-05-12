@@ -5,7 +5,7 @@ requires-python = ">=3.14, <4.0"
 [[package]]
 name = "agentic-tools"
 version = "0.1.0"
-source = { git = "https://github.com/swiftpostlab/agentic-tools.git#47699b2772cc8509c83dfaa69d115334822af058" }
+source = { git = "https://github.com/swiftpostlab/agentic-tools.git#188af38c95b5b6756ea0c0c7dd2ff3e3695083ab" }
 
 [[package]]
 name = "black"

@@ -88,9 +88,10 @@ When working on this project:
 - `uv run poe typecheck` — Run Pyright strict mode.
 - `uv run poe lint-filter` — Run lint and filter output.
 - `uv run poe typecheck-filter` — Run type-checking and filter output.
-- `uv run skills-management sync` — Sync configured shared skills into `.agents/skills/`.
-- `uv run sync-ai-policy` — Regenerate agent config from `.ai-policy.json`.
-- `uv run sync-ai-policy-import-vscode` — Import VS Code approvals into policy, then sync.
+- `uv run poe sync-skills` — Sync configured shared skills into `.agents/skills/`.
+- `uv run poe sync-ai-policy` — Regenerate agent config from `.ai-policy.json` through the installed `agentic-tools` package.
+- `uv run poe sync-ai-policy-import-vscode` — Import VS Code approvals into policy, then sync.
+- `uv run poe policy-check` — Fail when generated policy files drift from `.ai-policy.json`.
 
 Use the Poe validation tasks above as the default way to run tests, lint, and type-checking in this repo. Only call the underlying tools directly when a task needs flags or behavior that the Poe wrapper does not expose.
 

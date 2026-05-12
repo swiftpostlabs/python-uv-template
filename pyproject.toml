@@ -49,10 +49,13 @@ reportUnnecessaryTypeIgnoreComment = "warning"
 [project.scripts]
 init-project = "scripts.init_project:main"
 main = "my_project.main:main"
-sync-ai-policy = "scripts.sync_ai_policy:main"
-sync-ai-policy-import-vscode = "scripts.sync_ai_policy:import_vscode_main"
 
 [tool.poe.tasks]
+upgrade-agentic-tools = "uv lock --upgrade-package agentic-tools"
+sync-skills = "uv run agentic-tools skills sync"
+sync-ai-policy = "uv run agentic-tools policy sync"
+sync-ai-policy-import-vscode = "uv run agentic-tools policy import-vscode"
+policy-check = "uv run agentic-tools policy check"
 lint = "python -m black --check ./src"
 lint-fix = "python -m black ./src"
 typecheck = "python -m pyright ./src"
