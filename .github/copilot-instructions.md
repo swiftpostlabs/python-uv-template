@@ -79,6 +79,12 @@ When working on this project:
 5. **Commit**: Keep commits small and focused.
 6. **Reflect**: Review what happened in the session, identify both corrections and durable lessons, and decide whether any skill or instruction should be updated. Summarize the result to the user and ask if they want the guidance updated. If yes, update the relevant skill using `ref-skills-authoring`, and after editing suggest a follow-up maintenance pass with `tool-maintain-skills`.
 
+## Local Agent Workspaces
+
+- Use `.agents/playground/` for temporary helper scripts, scratch files, and generated local artifacts that should not enter normal repo context.
+- Use `.agents/tasks/` for local task tracking, task briefs, validation notes, and other ignored planning artifacts.
+- Both folders are ignored by Git; do not put committed source, durable documentation, or secrets there.
+
 ## Quick Commands
 
 - `uv sync` — Install or refresh dependencies.

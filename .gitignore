@@ -1,5 +1,6 @@
 # Agent only dirs
-.agents/tasks
+/.agents/playground/
+/.agents/tasks/
 
 
 # Byte-compiled / optimized / DLL files
