@@ -9,7 +9,10 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown: 2
+
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
+    cooldown: 2
