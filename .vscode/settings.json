@@ -63,6 +63,8 @@
     "**/.agent": false
   },
   "cSpell.words": [
-    "cooldown"
+    "agentic",
+    "cooldown",
+    "pytest"
   ]
 }
