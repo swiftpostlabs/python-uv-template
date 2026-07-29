@@ -167,10 +167,9 @@ def test_update_pyproject_content_updates_name_sources_and_entrypoints() -> None
         {"name": "Fabio Colella", "email": "fcole90@gmail.com"}
     ]
     assert parsed["tool"]["hatch"]["build"]["targets"]["wheel"]["packages"] == [
-        "src/cool_app",
-        "scripts",
+        "src/cool_app"
     ]
-    assert parsed["project"]["scripts"]["init-project"] == "scripts.init_project:main"
+    assert "init-project" not in parsed["project"]["scripts"]
     assert parsed["project"]["scripts"]["main"] == "cool_app.main:main"
     assert "sync-ai-policy" not in parsed["project"]["scripts"]
 

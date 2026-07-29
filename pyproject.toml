@@ -23,7 +23,10 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/my_project", "scripts"]
+# `scripts` stays out of the wheel: those are repo maintenance tools that operate
+# on the checkout, not library code. Packaging them copies them into site-packages,
+# where a script's `__file__`-relative repo root resolves to the venv instead.
+packages = ["src/my_project"]
 
 [tool.pytest.ini_options]
 minversion = "9.0"
@@ -45,7 +48,6 @@ reportUnknownMemberType = "none"
 reportUnnecessaryTypeIgnoreComment = "warning"
 
 [project.scripts]
-init-project = "scripts.init_project:main"
 main = "my_project.main:main"
 
 [tool.poe.tasks]

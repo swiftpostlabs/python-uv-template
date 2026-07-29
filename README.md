@@ -54,16 +54,16 @@ uv run poe policy-check
 
 ## Initialize a project
 
-Run the initializer through uv so it uses the managed environment and the registered entrypoint:
+Run the initializer through uv so it uses the managed environment:
 
 ```sh
-uv run init-project
+uv run python scripts/init_project.py
 ```
 
 You can also pass the name directly:
 
 ```sh
-uv run init-project --name cool-app
+uv run python scripts/init_project.py --name cool-app
 ```
 
 The initializer validates the project name, renames `src/my_project` to the underscore form, and updates `pyproject.toml` accordingly.
