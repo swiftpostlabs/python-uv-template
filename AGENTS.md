@@ -153,6 +153,7 @@ Run steps 3–5 as a loop, not a phase: for a task with several steps or several
 ## Quick Commands
 
 - `uv sync` — Install or refresh dependencies.
+- `uv run poe init-project [--name <name>]` — Initialize a fresh copy of the template.
 - `uv run poe test` — Run tests.
 - `uv run poe lint` — Check formatting.
 - `uv run poe lint-fix` — Auto-format code.
@@ -167,7 +168,7 @@ Run steps 3–5 as a loop, not a phase: for a task with several steps or several
 
 Use the Poe validation tasks above as the default way to run tests, lint, and type-checking in this repo. Only call the underlying tools directly when a task needs flags or behavior that the Poe wrapper does not expose.
 
-Repo maintenance scripts under `scripts/` are run by path rather than as installed entry points, for example `uv run python scripts/init_project.py --name cool-app`. They are deliberately kept out of the built wheel, so they are not importable from an installed copy.
+Repo maintenance scripts under `scripts/` are deliberately kept out of the built wheel, so they are not importable from an installed copy and cannot be registered in `[project.scripts]` — that table is distribution metadata, so an entry there would ship to consumers. Expose them as Poe tasks instead, which stay internal to the repo: `uv run poe init-project --name cool-app`.
 
 ## Asking for Help
 

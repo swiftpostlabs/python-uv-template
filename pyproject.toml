@@ -51,6 +51,7 @@ reportUnnecessaryTypeIgnoreComment = "warning"
 main = "my_project.main:main"
 
 [tool.poe.tasks]
+init-project = "python scripts/init_project.py"
 upgrade-agentic-tools = "uv lock --upgrade-package agentic-tools"
 sync-skills = "uv run agentic-tools skills sync"
 sync-ai-policy = "uv run agentic-tools policy sync"
