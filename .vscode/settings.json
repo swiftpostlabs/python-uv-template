@@ -66,5 +66,7 @@
     "agentic",
     "cooldown",
     "pytest"
-  ]
+  ],
+  "chat.useAgentsMdFile": true,
+  "chat.useNestedAgentsMdFiles": true
 }
