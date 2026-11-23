@@ -9,10 +9,27 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-    cooldown: 2
+    groups:
+      # Tooling only; a broken minor shows up in CI, not in what consumers install.
+      dev-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"
+    ignore:
+      # A git dependency, but Dependabot looks it up on PyPI, where an unrelated package of the same
+      # name lives, and fails the whole run. `uv run poe upgrade-agentic-tools` moves it instead.
+      - dependency-name: "agentic-tools"
+    cooldown:
+      default-days: 2
 
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       interval: "weekly"
-    cooldown: 2
+    groups:
+      github-actions:
+        patterns:
+          - "*"
+    cooldown:
+      default-days: 2
