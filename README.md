@@ -26,15 +26,15 @@ After this step you may want to close and reopen your terminal or IDE to ensure 
 
 ## Shared agent skills
 
-This template consumes shared Copilot skills from the `agentic-tools` package declared in the development dependencies.
+This template consumes shared agent skills from [`swiftpostlabs/agentic-tools`](https://github.com/swiftpostlabs/agentic-tools). `.agents/config.json` lists them, and `.agents/agentic-tools.lock` pins the commit they come from.
 
-After `uv sync`, populate `.agents/skills/` from `.agents/skills.json` with:
+After `uv sync`, link them into `.agents/skills/` with:
 
 ```sh
 uv run poe sync-skills
 ```
 
-The synced skill links point into the repo's local `.venv`, so `.agents/skills/` is generated locally rather than tracked in git.
+The command exports the pinned commit into the gitignored `.agents/local/sources/` and links the skills from there, so `.agents/skills/` is generated locally rather than tracked in git. Move the pin to the latest skills with `uv run agentic-tools skills update`.
 
 ## Agent policy
 
